@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | OppHub</title>
+    <meta name="description" content="Join OppHub — build the future of AI-powered career discovery for India's youth.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        .page-hero { padding: 8rem 2rem 4rem; text-align: center; background: radial-gradient(circle at 50% 0%, rgba(16,163,127,0.08) 0%, transparent 70%); }
+        .page-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+        .page-hero p { color: var(--text-secondary); font-size: 1.1rem; max-width: 580px; margin: 0 auto; line-height: 1.7; }
+        .page-section { max-width: 900px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+        .page-section h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+        .page-section p { color: var(--text-secondary); line-height: 1.8; font-size: 1rem; margin-bottom: 1.25rem; }
+        .role-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .role-card { background: var(--surface-color); border: 1px solid var(--surface-border); border-radius: 16px; padding: 1.75rem; transition: 0.3s ease; }
+        .role-card:hover { border-color: rgba(16,163,127,0.3); transform: translateY(-4px); }
+        .role-tag { display:inline-block; font-size:0.75rem; background:rgba(16,163,127,0.12); color:var(--accent-primary); padding:0.2rem 0.75rem; border-radius:50px; margin-bottom:0.75rem; border:1px solid rgba(16,163,127,0.2); }
+        .role-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .role-card p { font-size: 0.9rem; margin: 0; color: var(--text-secondary); }
+        .cta-banner { background: var(--surface-color); border: 1px solid var(--surface-border); border-radius: 20px; padding: 3rem 2rem; text-align: center; margin-top: 4rem; }
+        .cta-banner h2 { font-size: 1.75rem; margin-bottom: 0.75rem; }
+        .cta-banner p { color: var(--text-secondary); margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar reveal-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span class="logo-icon" style="color:var(--accent-primary);">✨</span><span class="logo-text">OppHub</span></a>
+            <div class="nav-links">
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="pages/auth/login.html" class="btn btn-secondary">Log In</a>
+                <a href="pages/auth/signup.html" class="btn btn-primary glow-effect">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-hero">
+        <span style="display:inline-block; padding:0.3rem 1rem; background:var(--surface-color); border:1px solid var(--surface-border); border-radius:50px; font-size:0.85rem; color:var(--accent-primary); margin-bottom:1.5rem;">We're Hiring</span>
+        <h1>Build the Future of <span style="color:var(--accent-primary);">Career Discovery</span></h1>
+        <p>Join our growing team of engineers, designers, and product thinkers building AI-powered tools for India's next generation of professionals.</p>
+    </div>
+
+    <div class="page-section">
+        <h2>Open Roles</h2>
+        <p>We're a remote-first, mission-driven team. We're actively looking for talented people who are passionate about making opportunity more accessible.</p>
+        <div class="role-grid">
+            <div class="role-card">
+                <span class="role-tag">Full-Time</span>
+                <h3>Full Stack Developer</h3>
+                <p>Node.js, Express, MongoDB, and modern frontend. Help scale our core platform APIs and user interfaces.</p>
+            </div>
+            <div class="role-card">
+                <span class="role-tag">Full-Time</span>
+                <h3>AI/ML Engineer</h3>
+                <p>Work on our Gemini-powered recommendation engine. Improve matching algorithms and personalisation.</p>
+            </div>
+            <div class="role-card">
+                <span class="role-tag">Internship</span>
+                <h3>Frontend Intern</h3>
+                <p>Design and build beautiful, responsive interfaces for OppHub's growing platform. HTML, CSS, JS focus.</p>
+            </div>
+            <div class="role-card">
+                <span class="role-tag">Internship</span>
+                <h3>Content & Outreach Intern</h3>
+                <p>Research and list new scholarships, hackathons, and internship opportunities for the OppHub database.</p>
+            </div>
+            <div class="role-card">
+                <span class="role-tag">Contract</span>
+                <h3>UI/UX Designer</h3>
+                <p>Design premium interfaces that are both beautiful and accessible. Experience with dark UI design preferred.</p>
+            </div>
+            <div class="role-card">
+                <span class="role-tag">Full-Time</span>
+                <h3>DevOps Engineer</h3>
+                <p>Build and maintain our cloud infrastructure, CI/CD pipelines, and security posture.</p>
+            </div>
+        </div>
+
+        <div class="cta-banner">
+            <h2>Don't See Your Role?</h2>
+            <p>We're always open to meeting exceptional people. Send us your portfolio or resume and let us know how you'd like to contribute.</p>
+            <a href="contact.html" class="btn btn-primary glow-effect btn-large">Get In Touch</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-icon" style="color:var(--accent-primary);">✨</span><span class="logo-text">OppHub</span></a><p style="color:var(--text-secondary);margin-top:1rem;max-width:280px;line-height:1.7;font-size:0.95rem;">Empowering the next generation to discover, apply, and succeed.</p></div>
+            <div class="footer-links">
+                <div class="link-group"><h4>Platform</h4><a href="pages/opportunities/opportunities.html">Browse Opportunities</a><a href="pages/applications/applications.html">Track Applications</a><a href="pages/dashboard/dashboard.html">Dashboard</a></div>
+                <div class="link-group"><h4>Company</h4><a href="about.html">About Us</a><a href="careers.html">Careers</a><a href="contact.html">Contact Us</a></div>
+                <div class="link-group"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 OppHub &mdash; Built for the next generation of talent.</p></div>
+    </footer>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunity Hub | Find Your Next Big Thing</title>
+    <meta name="description"
+        content="Discover, apply, and track opportunities effortlessly. Start your journey with our advanced platform today.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar reveal-nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">OppHub</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="pages/auth/login.html" class="btn btn-secondary" id="nav-login-btn">Log In</a>
+                <a href="pages/auth/signup.html" class="btn btn-primary glow-effect" id="nav-signup-btn">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+        <div class="hero-content fade-in-up">
+            <div class="badge">🚀 Revolutionize your career</div>
+            <h1 class="hero-title">Unlock Limitless <br><span class="gradient-text">Opportunities</span></h1>
+            <p class="hero-subtitle">Browse, apply, and track your next big career move with our intelligent opportunity
+                management platform.</p>
+            <div class="hero-actions" id="hero-actions">
+                <a href="pages/auth/signup.html" class="btn btn-primary btn-large glow-effect" id="hero-cta-primary">Get Started For Free</a>
+                <a href="#features" class="btn btn-secondary btn-large" id="hero-cta-secondary">Explore Features</a>
+            </div>
+        </div>
+        <div class="hero-visual fade-in scroll-delay">
+            <div class="animated-flow-container">
+                <!-- Glowing background accent -->
+                <div class="flow-glow"></div>
+
+                <!-- Nodes -->
+                <a href="pages/profile/profile.html" class="flow-node float-anim" style="cursor: pointer; text-decoration: none;">
+                    <div class="node-icon">👤</div>
+                    <div class="node-text">Build Profile</div>
+                </a>
+
+                <div class="flow-path">
+                    <div class="path-particle slow"></div>
+                    <div class="path-particle fast"></div>
+                </div>
+
+                <div class="flow-node float-anim delay">
+                    <div class="node-icon">⚡</div>
+                    <div class="node-text">AI Matching</div>
+                </div>
+
+                <div class="flow-path">
+                    <div class="path-particle slow delay"></div>
+                    <div class="path-particle fast delay"></div>
+                </div>
+
+                <a href="pages/opportunities/opportunities.html" class="flow-node float-anim"
+                    style="cursor: pointer; text-decoration: none;">
+                    <div class="node-icon">🎯</div>
+                    <div class="node-text">Get Hired</div>
+                </a>
+
+                <!-- Floating Decorators -->
+                <div class="decor-floating dec-1">💼</div>
+                <div class="decor-floating dec-2">🎓</div>
+                <div class="decor-floating dec-3">🚀</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-by reveal-on-scroll">
+        <p class="trusted-title">TRUSTED BY LEADING COMPANIES & UNIVERSITIES</p>
+        <div class="logo-marquee">
+            <div class="marquee-content">
+                <span>Google</span>
+                <span>Microsoft</span>
+                <span>Amazon</span>
+                <span>Spotify</span>
+                <span>Netflix</span>
+                <span>Stripe</span>
+                <!-- Duplicate for seamless scroll -->
+                <span>Google</span>
+                <span>Microsoft</span>
+                <span>Amazon</span>
+                <span>Spotify</span>
+                <span>Netflix</span>
+                <span>Stripe</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-header reveal-on-scroll">
+            <h2 class="section-title">Everything You Need to Succeed</h2>
+            <p class="section-subtitle">A seamlessly integrated workflow from finding opportunities to tracking
+                applications.</p>
+        </div>
+        <div class="features-grid">
+            <a href="pages/profile/profile.html" class="feature-card glass-panel reveal-on-scroll delay-1" style="display: block;">
+                <div class="feature-icon">👤</div>
+                <h3>Complete Profile</h3>
+                <p>Build a standout profile that highlights your skills, experience, and aspirations to attract the best
+                    opportunities.</p>
+            </a>
+            <a href="pages/opportunities/opportunities.html" class="feature-card glass-panel reveal-on-scroll delay-2"
+                style="display: block;">
+                <div class="feature-icon">🔍</div>
+                <h3>Browse Opportunities</h3>
+                <p>Explore a curated list of jobs, internships, and projects tailored to your specific preferences and
+                    skills.</p>
+            </a>
+            <div class="feature-card glass-panel reveal-on-scroll delay-3">
+                <div class="feature-icon">🔖</div>
+                <h3>Apply & Save</h3>
+                <p>Easily apply directly or save interesting opportunities for later. Keep your prospects organized in
+                    one place.</p>
+            </div>
+            <a href="pages/applications/applications.html" class="feature-card glass-panel reveal-on-scroll delay-4"
+                style="display: block;">
+                <div class="feature-icon">📊</div>
+                <h3>Application Tracker</h3>
+                <p>Monitor the status of your applications in real-time. Never lose track of your progress from applied
+                    to hired.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="features-header reveal-on-scroll">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Your journey to the perfect opportunity in 3 simple steps.</p>
+        </div>
+        <div class="steps-container">
+            <div class="step-card reveal-on-scroll delay-1">
+                <div class="step-number">1</div>
+                <h3>Create Profile</h3>
+                <p>Register and build a standout profile highlighting your skills and experiences.</p>
+            </div>
+            <div class="step-line reveal-on-scroll delay-2"></div>
+            <div class="step-card reveal-on-scroll delay-2">
+                <div class="step-number">2</div>
+                <h3>Discover & Apply</h3>
+                <p>Browse our curated list of opportunities and apply with a single click.</p>
+            </div>
+            <div class="step-line reveal-on-scroll delay-3"></div>
+            <div class="step-card reveal-on-scroll delay-3">
+                <div class="step-number">3</div>
+                <h3>Get Hired</h3>
+                <p>Track your applications, ace your interviews, and land your dream role.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="features-header reveal-on-scroll">
+            <h2 class="section-title">Success Stories</h2>
+            <p class="section-subtitle">See what our users have to say about OppHub.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card glass-panel reveal-on-scroll delay-1">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="quote">"OppHub made it incredibly easy to find and apply for scholarships. I landed a
+                    full-ride scholarship thanks to this platform!"</p>
+                <div class="author">
+                    <div class="author-avatar">R</div>
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.2rem;">Riya Parmar</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Computer Science Student</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card glass-panel reveal-on-scroll delay-2">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="quote">"The application tracker is a lifesaver. I applied to 15 different internships and
+                    could easily keep tabs on all of them."</p>
+                <div class="author">
+                    <div class="author-avatar" style="background: linear-gradient(135deg, #fcd34d, #f59e0b);">T</div>
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.2rem;">Tanmay Gavhane</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Software Engineering Intern</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card glass-panel reveal-on-scroll delay-3">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="quote">"Clean, modern, and exactly what I needed. Found my dream job at a top tech company
+                    within two weeks of signing up."</p>
+                <div class="author">
+                    <div class="author-avatar" style="background: linear-gradient(135deg, #10b981, #059669);">H</div>
+                    <div>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.2rem;">Heer Pithadia</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Frontend Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section reveal-on-scroll">
+        <div class="cta-container glass-panel">
+            <h2>Ready to accelerate your career?</h2>
+            <p>Join thousands of students and professionals finding their next big thing on OppHub.</p>
+            <a href="pages/auth/signup.html" class="btn btn-primary btn-large glow-effect">Create Your Free Account</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-icon" style="color: var(--accent-primary);">✨</span>
+                    <span class="logo-text">OppHub</span>
+                </a>
+                <p style="color: var(--text-secondary); margin-top: 1rem; max-width: 280px; line-height: 1.7; font-size: 0.95rem;">Empowering students and professionals to discover, apply, and track the right opportunities — powered by AI.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Platform</h4>
+                    <a href="pages/opportunities/opportunities.html">Browse Opportunities</a>
+                    <a href="pages/applications/applications.html">Track Applications</a>
+                    <a href="pages/dashboard/dashboard.html">Dashboard</a>
+                </div>
+                <div class="link-group">
+                    <h4>Company</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 OppHub &mdash; Built for the next generation of talent.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/api.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>

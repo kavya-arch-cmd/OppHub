@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | OppHub</title>
+    <meta name="description" content="Get in touch with OppHub — we're here to help with support, feedback, and partnership inquiries.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        .page-hero { padding: 8rem 2rem 4rem; text-align: center; background: radial-gradient(circle at 50% 0%, rgba(16,163,127,0.08) 0%, transparent 70%); }
+        .page-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+        .page-hero p { color: var(--text-secondary); font-size: 1.1rem; max-width: 550px; margin: 0 auto; }
+        .contact-grid { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem 6rem; display: grid; grid-template-columns: 1fr 1.4fr; gap: 3rem; align-items: start; }
+        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+        .contact-info h2 { font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .info-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start; }
+        .info-icon { width: 44px; height: 44px; background: var(--surface-color); border: 1px solid var(--surface-border); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .info-item h4 { font-size: 0.9rem; color: var(--text-secondary); font-weight: 500; margin-bottom: 0.2rem; }
+        .info-item p, .info-item a { font-size: 0.98rem; color: var(--text-primary); font-weight: 500; }
+        .info-item a:hover { color: var(--accent-primary); }
+        .contact-form { background: var(--surface-color); border: 1px solid var(--surface-border); border-radius: 20px; padding: 2.5rem; }
+        .contact-form h2 { font-size: 1.4rem; margin-bottom: 1.75rem; }
+        .form-group { margin-bottom: 1.25rem; }
+        .form-group label { display: block; font-size: 0.88rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-secondary); }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; background: var(--bg-color); border: 1px solid var(--surface-border); border-radius: 10px; padding: 0.75rem 1rem; color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: 0.2s ease; box-sizing: border-box; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 0 3px rgba(16,163,127,0.15); }
+        .form-group textarea { resize: vertical; min-height: 130px; }
+        .submit-btn { width: 100%; padding: 0.9rem; background: var(--accent-primary); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; font-family: 'Outfit', sans-serif; transition: 0.3s ease; margin-top: 0.5rem; }
+        .submit-btn:hover { background: var(--accent-secondary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(16,163,127,0.3); }
+        .success-msg { display:none; background:rgba(16,163,127,0.1); border:1px solid rgba(16,163,127,0.3); border-radius:10px; padding:1rem; text-align:center; color:var(--accent-primary); margin-top:1rem; font-weight:500; }
+    </style>
+</head>
+<body>
+    <nav class="navbar reveal-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span class="logo-icon" style="color:var(--accent-primary);">✨</span><span class="logo-text">OppHub</span></a>
+            <div class="nav-links">
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="pages/auth/login.html" class="btn btn-secondary">Log In</a>
+                <a href="pages/auth/signup.html" class="btn btn-primary glow-effect">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-hero">
+        <h1>We'd Love to <span style="color:var(--accent-primary);">Hear From You</span></h1>
+        <p>Have a question, feedback, or partnership idea? Reach out and our team will respond within 24 hours.</p>
+    </div>
+
+    <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <div class="info-item">
+                <div class="info-icon">📧</div>
+                <div>
+                    <h4>Email Support</h4>
+                    <a href="mailto:support@opphub.in">support@opphub.in</a>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">💼</div>
+                <div>
+                    <h4>Partnerships & Organisations</h4>
+                    <a href="mailto:partner@opphub.in">partner@opphub.in</a>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div>
+                    <h4>Location</h4>
+                    <p>Remote-First · India 🇮🇳</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">🕒</div>
+                <div>
+                    <h4>Response Time</h4>
+                    <p>Within 24 hours on business days</p>
+                </div>
+            </div>
+            <div style="margin-top:2rem; padding:1.5rem; background:var(--surface-color); border:1px solid var(--surface-border); border-radius:16px;">
+                <p style="font-size:0.88rem; color:var(--text-secondary); margin:0 0 0.75rem;">Follow us on</p>
+                <div style="display:flex; gap:1rem;">
+                    <a href="#" style="color:var(--text-secondary); font-size:0.9rem; font-weight:500; transition:0.2s;" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-secondary)'">LinkedIn</a>
+                    <a href="#" style="color:var(--text-secondary); font-size:0.9rem; font-weight:500; transition:0.2s;" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-secondary)'">Twitter / X</a>
+                    <a href="#" style="color:var(--text-secondary); font-size:0.9rem; font-weight:500; transition:0.2s;" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-secondary)'">GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>Send a Message</h2>
+            <form id="contact-form" onsubmit="handleSubmit(event)">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div class="form-group">
+                        <label for="cf-name">Full Name</label>
+                        <input type="text" id="cf-name" placeholder="Riya Parmar" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-email">Email Address</label>
+                        <input type="email" id="cf-email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cf-subject">Subject</label>
+                    <select id="cf-subject">
+                        <option value="general">General Inquiry</option>
+                        <option value="support">Technical Support</option>
+                        <option value="partnership">Partnership / Organisation</option>
+                        <option value="feedback">Product Feedback</option>
+                        <option value="career">Careers at OppHub</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cf-message">Message</label>
+                    <textarea id="cf-message" placeholder="Tell us how we can help you..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message ✉️</button>
+                <div class="success-msg" id="success-msg">✅ Message received! We'll get back to you within 24 hours.</div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-icon" style="color:var(--accent-primary);">✨</span><span class="logo-text">OppHub</span></a><p style="color:var(--text-secondary);margin-top:1rem;max-width:280px;line-height:1.7;font-size:0.95rem;">Empowering the next generation to discover, apply, and succeed.</p></div>
+            <div class="footer-links">
+                <div class="link-group"><h4>Platform</h4><a href="pages/opportunities/opportunities.html">Browse Opportunities</a><a href="pages/applications/applications.html">Track Applications</a><a href="pages/dashboard/dashboard.html">Dashboard</a></div>
+                <div class="link-group"><h4>Company</h4><a href="about.html">About Us</a><a href="careers.html">Careers</a><a href="contact.html">Contact Us</a></div>
+                <div class="link-group"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 OppHub &mdash; Built for the next generation of talent.</p></div>
+    </footer>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/script.js"></script>
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            document.getElementById('success-msg').style.display = 'block';
+            document.getElementById('contact-form').reset();
+            setTimeout(() => { document.getElementById('success-msg').style.display = 'none'; }, 5000);
+        }
+    </script>
+</body>
+</html>

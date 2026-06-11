@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | OppHub</title>
+    <meta name="description" content="Learn about OppHub — the AI-powered platform helping students and professionals discover scholarships, internships, jobs, and hackathons.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        .page-hero { padding: 8rem 2rem 4rem; text-align: center; background: radial-gradient(circle at 50% 0%, rgba(16,163,127,0.08) 0%, transparent 70%); }
+        .page-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+        .page-hero p { color: var(--text-secondary); font-size: 1.15rem; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+        .page-section { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+        .page-section h2 { font-size: 1.75rem; margin-bottom: 1.25rem; color: var(--text-primary); }
+        .page-section p { color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.5rem; }
+        .value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .value-card { background: var(--surface-color); border: 1px solid var(--surface-border); border-radius: 16px; padding: 2rem 1.5rem; transition: 0.3s ease; }
+        .value-card:hover { border-color: rgba(16,163,127,0.3); transform: translateY(-4px); }
+        .value-icon { font-size: 2rem; margin-bottom: 1rem; }
+        .value-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+        .value-card p { font-size: 0.9rem; margin: 0; }
+    </style>
+</head>
+<body>
+    <nav class="navbar reveal-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon" style="color: var(--accent-primary);">✨</span>
+                <span class="logo-text">OppHub</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="pages/auth/login.html" class="btn btn-secondary">Log In</a>
+                <a href="pages/auth/signup.html" class="btn btn-primary glow-effect">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-hero">
+        <span style="display:inline-block; padding:0.3rem 1rem; background:var(--surface-color); border:1px solid var(--surface-border); border-radius:50px; font-size:0.85rem; color:var(--accent-primary); margin-bottom:1.5rem;">Our Story</span>
+        <h1>Empowering Every <span style="color:var(--accent-primary);">Ambition</span></h1>
+        <p>OppHub is an AI-powered opportunity discovery platform built to help students and professionals unlock their full potential.</p>
+    </div>
+
+    <div class="page-section">
+        <h2>Our Mission</h2>
+        <p>At OppHub, our mission is simple: eliminate the frustration of opportunity hunting. Every student deserves access to the best internships, scholarships, hackathons, and jobs — regardless of where they come from.</p>
+        <p>We combine Gemini AI with intelligent filtering and real-time tracking to build the most personalized opportunity management experience ever created for the next generation of Indian talent.</p>
+
+        <h2 style="margin-top:3rem;">What We Offer</h2>
+        <div class="value-grid">
+            <div class="value-card">
+                <div class="value-icon">🤖</div>
+                <h3>AI Recommendations</h3>
+                <p>Our Gemini-powered engine learns your interests and matches you with the most relevant opportunities — instantly.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🎓</div>
+                <h3>Scholarships & Hackathons</h3>
+                <p>Discover academic funding and competitive building opportunities including full-ride scholarships, freelancing gigs, and high-stakes hackathons.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">💼</div>
+                <h3>Internships & Jobs</h3>
+                <p>Browse curated listings from top companies, startups, and research institutions — filtered to your skills.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">📊</div>
+                <h3>Application Tracker</h3>
+                <p>Track every application from submission to acceptance with live status updates and admin notifications.</p>
+            </div>
+        </div>
+
+        <h2 style="margin-top:3rem;">Built for India's Youth</h2>
+        <p>OppHub is designed with the Indian student ecosystem in mind. From national hackathons to Silicon Valley internships, we surface opportunities that match your academic background, career interests, and ambitions — all in one place.</p>
+        <p>We believe opportunity should be democratized. Whether you're from a tier-1 city or a small town, OppHub levels the playing field.</p>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo"><span class="logo-icon" style="color:var(--accent-primary);">✨</span><span class="logo-text">OppHub</span></a>
+                <p style="color:var(--text-secondary);margin-top:1rem;max-width:280px;line-height:1.7;font-size:0.95rem;">Empowering the next generation to discover, apply, and succeed.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group"><h4>Platform</h4><a href="pages/opportunities/opportunities.html">Browse Opportunities</a><a href="pages/applications/applications.html">Track Applications</a><a href="pages/dashboard/dashboard.html">Dashboard</a></div>
+                <div class="link-group"><h4>Company</h4><a href="about.html">About Us</a><a href="careers.html">Careers</a><a href="contact.html">Contact Us</a></div>
+                <div class="link-group"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 OppHub &mdash; Built for the next generation of talent.</p></div>
+    </footer>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

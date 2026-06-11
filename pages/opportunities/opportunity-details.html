@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunity Details | OppHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <style>
+        .upload-card {
+            background: #171717 !important;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .upload-card:hover {
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        #resume-upload::-file-selector-button {
+            background: var(--surface-color-light);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            cursor: pointer;
+            margin-right: 1rem;
+            transition: all 0.2s ease;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+        }
+
+        #resume-upload::-file-selector-button:hover {
+            background: var(--highlight);
+        }
+    </style>
+</head>
+
+<body class="dashboard-page">
+    <nav class="navbar dashboard-navbar">
+        <div class="nav-container" style="max-width: 1400px">
+            <a href="../../index.html" class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">OppHub</span>
+            </a>
+            <div class="nav-links">
+                <a href="../../index.html" class="btn btn-secondary btn-sm" id="logout-btn">Log Out</a>
+            </div>
+        </div>
+    </nav>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="../../index.html">
+                        <span class="menu-icon">🏠</span> Home
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../dashboard/dashboard.html">
+                        <span class="menu-icon">📊</span> Dashboard
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="opportunities.html">
+                        <span class="menu-icon">🔍</span> Opportunities
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../applications/applications.html">
+                        <span class="menu-icon">🔖</span> My Applications
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../profile/profile.html">
+                        <span class="menu-icon">👤</span> Profile
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-widget glass-panel slide-up delay-1">
+                <a href="opportunities.html" class="text-link text-sm"
+                    style="display: inline-block; margin-bottom: 1rem;">&larr; Back to Opportunities</a>
+
+                <div id="loader" style="padding: 3rem; text-align: center;">
+                    <span class="loader" style="width: 40px; height: 40px; border-width: 3px;"></span>
+                </div>
+
+                <div id="details-container" style="display: none;">
+                    <div class="opp-header" style="margin-bottom: 2rem;">
+                        <span class="item-badge badge-new" id="opp-category" style="margin-bottom: 12px; display: inline-block;">Internship</span>
+                        <h1 id="opp-title" style="font-size: 2.75rem; margin-bottom: 0.75rem; line-height: 1.1; font-family: var(--font-heading);">Software Engineering Intern</h1>
+                        <div id="opp-company-loc" class="opp-company" style="font-size: 1.15rem; color: var(--text-secondary);">Google &bull; Remote</div>
+                    </div>
+
+                    <div id="dynamic-info" style="display: flex; gap: 0.75rem; margin: 1.5rem 0; padding-bottom: 1.5rem; border-bottom: 1px solid var(--surface-border); flex-wrap: wrap;">
+                        <span class="opp-deadline" style="font-size: 0.9rem; padding: 0.4rem 0.8rem; background: rgba(255,255,255,0.05); border-radius: 6px;">⏳ Deadline: <span id="opp-deadline-text"></span></span>
+                        <span id="stipend-badge" class="opp-deadline" style="background: rgba(59, 130, 246, 0.1); color: #93c5fd; font-size: 0.9rem; padding: 0.4rem 0.8rem; border-radius: 6px; display: none;">💰 <span id="stipend-text"></span></span>
+                        <span id="exp-badge" class="opp-deadline" style="background: rgba(16, 185, 129, 0.1); color: #6ee7b7; font-size: 0.9rem; padding: 0.4rem 0.8rem; border-radius: 6px; display: none;">💼 <span id="exp-text"></span></span>
+                        <span id="academic-badge" class="opp-deadline" style="background: rgba(124, 58, 237, 0.1); color: #a78bfa; font-size: 0.9rem; padding: 0.4rem 0.8rem; border-radius: 6px; display: none;">🎓 <span id="academic-text"></span></span>
+                        
+                        <!-- Hackathon Specific Badges -->
+                        <span id="prize-badge" class="opp-deadline" style="background: rgba(16, 185, 129, 0.1); color: #6ee7b7; font-size: 0.9rem; padding: 0.4rem 0.8rem; border-radius: 6px; display: none;">🏆 Prize: <span id="prize-text"></span></span>
+                        <span id="team-badge" class="opp-deadline" style="background: rgba(59, 130, 246, 0.1); color: #93c5fd; font-size: 0.9rem; padding: 0.4rem 0.8rem; border-radius: 6px; display: none;">👥 Team: <span id="team-text"></span></span>
+                        <span id="mode-badge" class="opp-deadline" style="background: rgba(245, 158, 11, 0.1); color: #fbbf24; font-size: 0.9rem; padding: 0.4rem 0.8rem; border-radius: 6px; display: none;">🌐 Mode: <span id="mode-text"></span></span>
+                        <span id="duration-badge" class="opp-deadline" style="background: rgba(255, 255, 255, 0.05); color: var(--text-primary); font-size: 0.9rem; padding: 0.4rem 0.8rem; border-radius: 6px; display: none;">⏱️ <span id="duration-text"></span></span>
+                    </div>
+
+                    <div style="margin-bottom: 2.5rem; max-width: 850px;">
+                        <!-- Freelancing Details Card -->
+                        <div id="freelancing-details-card" style="display: none; margin-bottom: 2rem; padding: 1.5rem; background: rgba(245, 158, 11, 0.05); border-radius: 12px; border: 1px solid rgba(245, 158, 11, 0.2);">
+                            <h4 style="margin-bottom: 1rem; font-size: 1.1rem; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px;">
+                                <span>💼</span> Freelancing Details
+                            </h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+                                <div id="budget-block" style="display: none;">
+                                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.3rem;">Budget Range</div>
+                                    <div id="card-budget-text" style="font-size: 1rem; color: var(--text-primary); font-weight: 500;"></div>
+                                </div>
+                                <div id="project-type-block" style="display: none;">
+                                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.3rem;">Project Type</div>
+                                    <div id="card-project-type-text" style="font-size: 1rem; color: var(--text-primary); font-weight: 500;"></div>
+                                </div>
+                                <div id="freelance-exp-block" style="display: none;">
+                                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.3rem;">Experience Level</div>
+                                    <div id="card-freelance-exp-text" style="font-size: 1rem; color: var(--text-primary); font-weight: 500;"></div>
+                                </div>
+                            </div>
+                            <div id="freelance-skills-container" style="display: none;">
+                                <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Required Skills</div>
+                                <div id="freelance-skills-tags" style="display: flex; gap: 0.5rem; flex-wrap: wrap;"></div>
+                            </div>
+                        </div>
+
+                        <h3 style="margin-bottom: 1.25rem; font-size: 1.4rem; font-family: var(--font-heading);">About This Opportunity</h3>
+                        <p id="opp-desc" class="opp-description" style="font-size: 1.05rem; line-height: 1.6; color: var(--text-primary); opacity: 0.9;"></p>
+
+                        <div id="skills-section" style="display: none; margin-top: 2rem;">
+                            <h4 style="margin-bottom: 1rem; font-size: 1.1rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">Required Skills</h4>
+                            <div id="skills-tags" style="display: flex; gap: 0.6rem; flex-wrap: wrap;"></div>
+                        </div>
+
+                        <h4 style="margin: 2.5rem 0 1rem; font-size: 1.1rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">Key Requirements</h4>
+                        <div id="opp-eligibility" style="color: var(--text-primary); opacity: 0.9; line-height: 1.7; font-size: 1.05rem;"></div>
+                        <div id="income-info" style="margin-top: 1.25rem; padding: 1rem; background: rgba(124, 58, 237, 0.05); border-radius: 8px; border-left: 3px solid #a78bfa; display: none;">
+                            <span style="font-size: 0.95rem; color: var(--text-primary);"><strong>Income Criteria:</strong> <span id="income-text"></span></span>
+                        </div>
+                    </div>
+
+                    <div class="upload-card" style="margin-bottom: 2.5rem; background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 16px; border: 1px solid var(--surface-border); max-width: 600px;">
+                        <h4 id="upload-label" style="margin-bottom: 1rem; font-size: 1.15rem; font-family: var(--font-heading);">Submit Your Resume</h4>
+                        <div style="position: relative;">
+                            <input type="file" id="resume-upload" accept=".pdf,.doc,.docx" style="display: block; width: 100%; padding: 0.75rem; background: rgba(0,0,0,0.2); color: var(--text-primary); border: 1px solid var(--surface-border); border-radius: 10px; margin-bottom: 0.75rem; cursor: pointer; transition: all 0.3s ease;" required>
+                        </div>
+                        <p id="upload-help" style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Accepted formats: PDF, DOC, DOCX (Max 5MB)</p>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button id="apply-btn" class="btn btn-primary btn-large glow-effect">
+                            <span class="btn-text">🚀 Apply Now</span>
+                            <span class="loader" style="display: none; border-width: 2px;"></span>
+                        </button>
+                        <button id="save-btn" class="btn btn-secondary btn-large">
+                            <span class="btn-text">🔖 Save Opportunity</span>
+                            <span class="loader"
+                                style="display: none; border-width: 2px; border-top-color: transparent; border-right-color: transparent;"></span>
+                        </button>
+                    </div>
+
+                    <div id="feedback-msg" class="error-banner"
+                        style="display: none; margin-top: 1.5rem; text-align: left; padding: 1.2rem;"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../../scripts/api.js"></script>
+    <script src="../../scripts/opportunity-details.js"></script>
+</body>
+
+</html>

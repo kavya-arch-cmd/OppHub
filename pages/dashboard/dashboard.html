@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | OppHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/style.css">
+</head>
+
+<body class="dashboard-page" data-auth="required">
+    <!-- Navbar -->
+    <nav class="navbar dashboard-navbar">
+        <div class="nav-container" style="max-width: 1400px">
+            <a href="../../index.html" class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">OppHub</span>
+            </a>
+            <div class="nav-links">
+                <a href="../../index.html" class="btn btn-secondary btn-sm" id="logout-btn">Log Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel slide-up">
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="../../index.html">
+                        <span class="menu-icon">🏠</span> Home
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="dashboard.html">
+                        <span class="menu-icon">📊</span> Dashboard
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../opportunities/opportunities.html">
+                        <span class="menu-icon">🔍</span> Opportunities
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../applications/applications.html">
+                        <span class="menu-icon">🔖</span> My Applications
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../profile/profile.html">
+                        <span class="menu-icon">👤</span> Profile
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header fade-in">
+                <h1 id="welcome-message">Welcome back!</h1>
+                <p>Here is what's happening with your opportunities today.</p>
+            </header>
+
+            <!-- Onboarding Banner -->
+            <div id="onboarding-banner" class="glass-panel fade-in" style="display:none; padding:1.25rem; margin-bottom:1.5rem; border: 1px dashed var(--surface-border); background: var(--surface-color-light);">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h4 style="margin-bottom:0.25rem; font-family: var(--font-heading);">✨ Personalize Your Experience</h4>
+                        <p style="font-size:0.85rem; color:var(--text-secondary);">Select your preferred fields to unlock tailored AI recommendations.</p>
+                    </div>
+                    <a href="../profile/profile.html" class="btn btn-primary btn-sm">Set Interests</a>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem;" class="fade-in">
+                <div class="glass-panel" style="padding:1.25rem;text-align:center;">
+                    <div style="font-size:2rem;font-weight:700;color:var(--accent-primary);" id="stat-opportunities">0</div>
+                    <div style="font-size:0.85rem;color:var(--text-secondary);margin-top:0.25rem;">Total Opportunities</div>
+                </div>
+                <div class="glass-panel" style="padding:1.25rem;text-align:center;">
+                    <div style="font-size:2rem;font-weight:700;color:#6ee7b7;" id="stat-applications">0</div>
+                    <div style="font-size:0.85rem;color:var(--text-secondary);margin-top:0.25rem;">My Applications</div>
+                </div>
+                <div class="glass-panel" style="padding:1.25rem;text-align:center;">
+                    <div style="font-size:2rem;font-weight:700;color:#fbbf24;" id="stat-bookmarks">0</div>
+                    <div style="font-size:0.85rem;color:var(--text-secondary);margin-top:0.25rem;">Saved</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Summary Widget -->
+                <div class="dashboard-widget glass-panel slide-up delay-1">
+                    <h3>Profile Summary</h3>
+                    <div id="profile-summary" class="widget-content">
+                        <!-- Loaded via JS -->
+                        <div class="skeleton-loader" style="height: 120px;"></div>
+                    </div>
+                </div>
+
+                <!-- Recent Opportunities -->
+                <div class="dashboard-widget glass-panel slide-up delay-2">
+                    <div class="widget-header">
+                        <h3>Recent Opportunities</h3>
+                        <a href="../opportunities/opportunities.html" class="text-link text-sm">View All</a>
+                    </div>
+                    <div id="recent-opportunities" class="widget-list">
+                        <!-- Loaded via JS -->
+                        <div class="skeleton-loader"></div>
+                        <div class="skeleton-loader"></div>
+                    </div>
+                </div>
+
+                <!-- Saved Opportunities -->
+                <div class="dashboard-widget glass-panel slide-up delay-2">
+                    <div class="widget-header">
+                        <h3>Saved Opportunities</h3>
+                        <a href="../opportunities/opportunities.html" class="text-link text-sm">Browse</a>
+                    </div>
+                    <div id="saved-opportunities" class="widget-list">
+                        <div class="skeleton-loader"></div>
+                        <div class="skeleton-loader"></div>
+                    </div>
+                </div>
+
+                <!-- Application Status -->
+                <div class="dashboard-widget glass-panel slide-up delay-3 col-span-2">
+                    <div class="widget-header">
+                        <h3>Application Status</h3>
+                        <a href="../applications/applications.html" class="text-link text-sm">Track All</a>
+                    </div>
+                    <div class="table-container">
+                        <table class="status-table">
+                            <thead>
+                                <tr>
+                                    <th>Role</th>
+                                    <th>Company</th>
+                                    <th>Date Applied</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="application-status">
+                                <!-- Loaded via JS -->
+                            </tbody>
+                        </table>
+                        <div id="table-loader">
+                            <div class="skeleton-loader" style="margin-top: 10px;"></div>
+                            <div class="skeleton-loader" style="margin-top: 10px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Recommendations -->
+                <div class="dashboard-widget glass-panel slide-up delay-3 col-span-2">
+                    <div class="widget-header">
+                        <h3 id="ai-title">🤖 Recommended For You</h3>
+                        <button id="refresh-ai-btn" class="btn btn-secondary btn-sm" style="font-size:0.78rem;padding:4px 12px;">
+                            🔄 Refresh
+                        </button>
+                    </div>
+                    <!-- Loading State -->
+                    <div id="ai-loader" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:1rem;margin-top:1rem;">
+                        <div class="skeleton-loader" style="height:120px;border-radius:12px;"></div>
+                        <div class="skeleton-loader" style="height:120px;border-radius:12px;"></div>
+                        <div class="skeleton-loader" style="height:120px;border-radius:12px;"></div>
+                        <div class="skeleton-loader" style="height:120px;border-radius:12px;"></div>
+                        <div class="skeleton-loader" style="height:120px;border-radius:12px;"></div>
+                        <div class="skeleton-loader" style="height:120px;border-radius:12px;"></div>
+                    </div>
+                    <!-- Recommendation Cards -->
+                    <div id="ai-recommendations" style="display:none;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:1rem;margin-top:1rem;"></div>
+                    <!-- Error Fallback -->
+                    <div id="ai-error" style="display:none;text-align:center;padding:2rem;color:var(--text-secondary);"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../scripts/api.js"></script>
+    <script src="../../scripts/auth-guard.js"></script>
+    <script src="../../scripts/dashboard.js"></script>
+</body>
+
+</html>

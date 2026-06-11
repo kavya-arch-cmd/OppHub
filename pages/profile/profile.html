@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | OppHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <style>
+        .form-input option {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+        }
+
+        .interest-tag {
+            padding: 0.5rem 1rem;
+            background: var(--surface-color-light);
+            border: 1px solid var(--surface-border);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-secondary);
+            user-select: none;
+        }
+
+        .interest-tag:hover {
+            border-color: var(--text-secondary);
+            color: var(--text-primary);
+        }
+
+        .interest-tag.selected {
+            background: var(--accent-primary);
+            color: #0A0A0A;
+            border-color: var(--accent-primary);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="dashboard-page" data-auth="required">
+    <!-- Navbar -->
+    <nav class="navbar dashboard-navbar">
+        <div class="nav-container" style="max-width: 1400px">
+            <a href="../../index.html" class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">OppHub</span>
+            </a>
+            <div class="nav-links">
+                <a href="../../index.html" class="btn btn-secondary btn-sm" id="logout-btn">Log Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="../../index.html">
+                        <span class="menu-icon">🏠</span> Home
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../dashboard/dashboard.html">
+                        <span class="menu-icon">📊</span> Dashboard
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../opportunities/opportunities.html">
+                        <span class="menu-icon">🔍</span> Opportunities
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../applications/applications.html">
+                        <span class="menu-icon">🔖</span> My Applications
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="profile.html">
+                        <span class="menu-icon">👤</span> Profile
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header fade-in">
+                <h1>Your Career Profile</h1>
+                <p>Add details to help us recommend the best opportunities for you.</p>
+            </header>
+
+            <div class="dashboard-grid" style="grid-template-columns: 1fr; max-width: 600px;">
+                <div class="dashboard-widget glass-panel slide-up delay-1" style="padding: 2.5rem;">
+                    <div id="success-message" class="error-banner"
+                        style="display: none; background: rgba(39, 201, 63, 0.1); border-color: rgba(39, 201, 63, 0.3); color: #86efac;">
+                        ✅ Profile Updated Successfully. Redirecting...
+                    </div>
+
+                    <div id="error-message" class="error-banner" style="display: none;"></div>
+
+                    <form id="profile-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" name="fullname" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Course / Degree</label>
+                            <input type="text" id="course" name="course" class="form-input"
+                                placeholder="e.g. B.Tech Computer Science" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" name="category" class="form-input" required>
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="general">General</option>
+                                <option value="obc">OBC</option>
+                                <option value="sc">SC</option>
+                                <option value="st">ST</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="income">Annual Income Range</label>
+                            <select id="income" name="income" class="form-input" required>
+                                <option value="" disabled selected>Select Income Range</option>
+                                <option value="<2L">Below 2L</option>
+                                <option value="2L-5L">2L - 5L</option>
+                                <option value="5L-10L">5L - 10L</option>
+                                <option value=">10L">Above 10L</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Location / State</label>
+                            <input type="text" id="location" name="location" class="form-input"
+                                placeholder="Enter your state (e.g., California)" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Preferred Fields / Interests</label>
+                            <div id="interests-container" class="interests-grid" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+                                <!-- Interests populated by JS -->
+                            </div>
+                            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem;">Select your career interests.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Preferred Opportunity Types</label>
+                            <div id="types-container" class="interests-grid" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+                                <!-- Types populated by JS -->
+                            </div>
+                            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem;">Select the types of opportunities you want to see.</p>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large btn-block glow-effect" id="save-btn"
+                            style="margin-top: 1.5rem;">
+                            <span class="btn-text">Save Profile</span>
+                            <span class="loader"
+                                style="display: none; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; width: 20px; height: 20px; border-radius: 50%;"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../scripts/api.js"></script>
+    <script src="../../scripts/auth-guard.js"></script>
+    <script src="../../scripts/profile.js"></script>
+</body>
+
+</html>

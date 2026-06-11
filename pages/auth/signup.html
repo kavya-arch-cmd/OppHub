@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | OppHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/style.css">
+</head>
+
+<body class="auth-page">
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">OppHub</span>
+            </a>
+            <div class="nav-links">
+                <a href="../../index.html#features" class="nav-link">Features</a>
+                <a href="login.html" class="btn btn-secondary">Log In</a>
+                <a href="signup.html" class="btn btn-primary glow-effect">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auth Section -->
+    <section class="auth-section">
+        <div class="auth-card glass-panel fade-in-up">
+            <div class="auth-header">
+                <h2>Create Account</h2>
+                <p>Join OppHub and find your next big opportunity</p>
+            </div>
+
+            <div id="error-message" class="error-banner" style="display: none;"></div>
+
+            <form id="signup-form" class="auth-form">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" class="form-input"
+                        placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-input"
+                        placeholder="Create a password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" class="form-input"
+                        placeholder="Confirm your password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large btn-block glow-effect" id="signup-btn">
+                    <span class="btn-text">Create Account</span>
+                    <span class="loader" style="display: none;"></span>
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html" class="text-link">Log In</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom" style="border-top: none;">
+            <p>&copy; 2026 OppHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../scripts/api.js"></script>
+    <script src="../../scripts/signup.js"></script>
+</body>
+
+</html>

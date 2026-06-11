@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Tracker | OppHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/style.css">
+</head>
+
+<body class="dashboard-page" data-auth="required">
+    <!-- Navbar -->
+    <nav class="navbar dashboard-navbar">
+        <div class="nav-container" style="max-width: 1400px">
+            <a href="../../index.html" class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">OppHub</span>
+            </a>
+            <div class="nav-links">
+                <a href="../../index.html" class="btn btn-secondary btn-sm" id="logout-btn">Log Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="../../index.html">
+                        <span class="menu-icon">🏠</span> Home
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../dashboard/dashboard.html">
+                        <span class="menu-icon">📊</span> Dashboard
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../opportunities/opportunities.html">
+                        <span class="menu-icon">🔍</span> Opportunities
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="applications.html">
+                        <span class="menu-icon">🔖</span> My Applications
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../profile/profile.html">
+                        <span class="menu-icon">👤</span> Profile
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header fade-in">
+                <h1>Application Tracker</h1>
+                <p>Monitor your active job and scholarship applications in real-time.</p>
+            </header>
+
+            <div class="dashboard-widget glass-panel slide-up delay-1">
+                <div class="widget-header" style="margin-bottom: 1.5rem;">
+                    <h3>Your Applications</h3>
+                    <a href="../dashboard/dashboard.html" class="btn btn-secondary btn-sm">Back to Dashboard</a>
+                </div>
+
+                <!-- Skeleton Loader explicitly positioned for table fetch -->
+                <div id="loader" style="padding: 3rem; text-align: center;">
+                    <span class="loader" style="width: 40px; height: 40px; border-width: 3px;"></span>
+                </div>
+
+                <div id="tracker-container" style="display: none; display: flex; flex-direction: column; gap: 1.5rem;">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../scripts/api.js"></script>
+    <script src="../../scripts/auth-guard.js"></script>
+    <script src="../../scripts/applications.js"></script>
+</body>
+
+</html>

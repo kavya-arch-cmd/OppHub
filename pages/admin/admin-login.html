@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | OppHub</title>
+    <meta name="description" content="Secure admin access panel for OppHub opportunity management.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/admin.css">
+</head>
+
+<body class="admin-page">
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">OppHub</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Admin Login Section -->
+    <section class="admin-login-section">
+        <div class="admin-login-blob admin-login-blob-1"></div>
+        <div class="admin-login-blob admin-login-blob-2"></div>
+
+        <div class="admin-login-card">
+            <div class="admin-login-badge">
+                <span class="badge-dot"></span>
+                Admin Portal
+            </div>
+
+            <div class="admin-login-header">
+                <h2>Admin Access Panel</h2>
+                <p>Enter your admin credentials to continue</p>
+            </div>
+
+            <div id="admin-error" class="admin-error-banner"></div>
+
+            <form id="admin-login-form">
+                <div class="admin-form-group">
+                    <label for="admin-email">Email <span class="required">*</span></label>
+                    <input type="email" id="admin-email" name="email" class="admin-input"
+                        placeholder="admin@opphub.com" required>
+                </div>
+
+                <div class="admin-form-group">
+                    <label for="admin-password">Password <span class="required">*</span></label>
+                    <input type="password" id="admin-password" name="password" class="admin-input"
+                        placeholder="Enter admin password" required>
+                </div>
+
+                <button type="submit" class="admin-btn admin-btn-primary" id="admin-login-btn"
+                    style="width: 100%; margin-top: 0.5rem;">
+                    <span class="btn-text">Login to Dashboard</span>
+                    <span class="admin-loader" id="login-loader"></span>
+                </button>
+            </form>
+
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="../../index.html"
+                    style="color: var(--text-secondary); font-size: 0.9rem;">← Back to Website</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../scripts/api.js"></script>
+    <script src="../../scripts/admin-login.js"></script>
+</body>
+
+</html>

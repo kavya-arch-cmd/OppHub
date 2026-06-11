@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Opportunities | Admin — OppHub</title>
+    <meta name="description" content="View, edit, and delete opportunities on the OppHub platform.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/admin.css">
+</head>
+
+<body class="admin-page" data-auth="admin">
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="nav-container" style="max-width: 1400px">
+            <a href="../../index.html" class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">OppHub</span>
+            </a>
+            <div class="nav-links">
+                <span
+                    style="color: var(--text-secondary); font-size: 0.85rem; border: 1px solid rgba(124,58,237,0.3); padding: 4px 12px; border-radius: 50px; background: rgba(124,58,237,0.08);">🔒
+                    Admin</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Layout -->
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar-header">
+                <h3>Admin Panel</h3>
+            </div>
+            <a href="admin-dashboard.html" class="admin-nav-item">
+                <span class="admin-nav-icon">📊</span> Dashboard
+            </a>
+            <a href="add-opportunity.html" class="admin-nav-item">
+                <span class="admin-nav-icon">➕</span> Add Opportunity
+            </a>
+            <a href="manage-opportunities.html" class="admin-nav-item active">
+                <span class="admin-nav-icon">📋</span> Manage Opportunities
+            </a>
+            <a href="admin-login.html" class="admin-nav-item logout" id="admin-logout">
+                <span class="admin-nav-icon">🚪</span> Logout
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-page-header fade-in-up">
+                <h1>Manage Opportunities</h1>
+                <p>Search, filter, edit, or remove existing opportunity listings.</p>
+            </div>
+
+            <!-- Toolbar -->
+            <div class="admin-toolbar fade-in-up">
+                <input type="text" class="admin-search" id="search-input"
+                    placeholder="🔍  Search by title or organization...">
+                <select class="admin-filter" id="category-filter">
+                    <option value="">All Categories</option>
+                    <option value="Scholarship">Scholarship</option>
+                    <option value="Internship">Internship</option>
+                    <option value="Job">Job</option>
+                    <option value="Freelancing">Freelancing</option>
+                    <option value="Workshop / Training">Workshop / Training</option>
+                    <option value="Hackathon">Hackathon</option>
+                </select>
+            </div>
+
+            <!-- Table -->
+            <div class="admin-table-container fade-in-up">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Deadline</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="manage-table-body">
+                        <!-- Populated via JS -->
+                    </tbody>
+                </table>
+                <div id="manage-empty" class="admin-empty-state" style="display: none;">
+                    <div class="empty-icon">📭</div>
+                    <h3>No opportunities found</h3>
+                    <p>Try adjusting your search or filter, or add a new opportunity.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="admin-modal-overlay" id="edit-modal">
+        <div class="admin-modal">
+            <h2>Edit Opportunity</h2>
+            <form id="edit-form">
+                <input type="hidden" id="edit-id">
+                <div class="admin-form-group">
+                    <label for="edit-title">Title <span class="required">*</span></label>
+                    <input type="text" id="edit-title" class="admin-input" required>
+                </div>
+                <div class="admin-form-group">
+                    <label for="edit-category">Category <span class="required">*</span></label>
+                    <select id="edit-category" class="admin-select" required>
+                        <option value="Scholarship">Scholarship</option>
+                        <option value="Internship">Internship</option>
+                        <option value="Job">Job</option>
+                        <option value="Freelancing">Freelancing</option>
+                        <option value="Workshop / Training">Workshop / Training</option>
+                        <option value="Hackathon">Hackathon</option>
+                    </select>
+                </div>
+                <div class="admin-form-group">
+                    <label for="edit-description">Description</label>
+                    <textarea id="edit-description" class="admin-textarea"></textarea>
+                </div>
+
+                <!-- Dynamic Internship/Job Fields -->
+                <div id="edit-internship-fields" style="display: none; margin-bottom: 1.5rem; padding: 1rem; background: rgba(59, 130, 246, 0.05); border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.2);">
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label for="edit-stipend">Stipend / Salary</label>
+                            <input type="text" id="edit-stipend" class="admin-input">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="edit-experience">Experience</label>
+                            <input type="text" id="edit-experience" class="admin-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Scholarship Fields -->
+                <div id="edit-scholarship-fields" style="display: none; margin-bottom: 1.5rem; padding: 1rem; background: rgba(124, 58, 237, 0.05); border-radius: 8px; border: 1px solid rgba(124, 58, 237, 0.2);">
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label for="edit-academic">Academic Requirements</label>
+                            <input type="text" id="edit-academic" class="admin-input">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="edit-income">Income Criteria</label>
+                            <input type="text" id="edit-income" class="admin-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Hackathon Fields -->
+                <div id="edit-hackathon-fields" style="display: none; margin-bottom: 1.5rem; padding: 1rem; background: rgba(16, 185, 129, 0.05); border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.2);">
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label for="edit-prizepool">Prize Pool</label>
+                            <input type="text" id="edit-prizepool" class="admin-input">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="edit-teamsize">Team Size</label>
+                            <input type="text" id="edit-teamsize" class="admin-input">
+                        </div>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label for="edit-mode">Mode</label>
+                            <select id="edit-mode" class="admin-select">
+                                <option value="">Select Mode</option>
+                                <option value="Online">Online</option>
+                                <option value="Offline">Offline</option>
+                                <option value="Hybrid">Hybrid</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="edit-duration">Duration</label>
+                            <input type="text" id="edit-duration" class="admin-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-form-group">
+                    <label for="edit-eligibility">Eligibility</label>
+                    <input type="text" id="edit-eligibility" class="admin-input">
+                </div>
+                <div class="admin-form-group">
+                    <label for="edit-organization">Organization</label>
+                    <input type="text" id="edit-organization" class="admin-input">
+                </div>
+                <div class="admin-form-group">
+                    <label for="edit-location">Location</label>
+                    <input type="text" id="edit-location" class="admin-input">
+                </div>
+                <div class="admin-form-group">
+                    <label for="edit-link">Application Link</label>
+                    <input type="url" id="edit-link" class="admin-input">
+                </div>
+                <div class="admin-form-group">
+                    <label for="edit-deadline">Deadline</label>
+                    <input type="date" id="edit-deadline" class="admin-input">
+                </div>
+                <div class="admin-form-actions">
+                    <button type="submit" class="admin-btn admin-btn-primary">Save Changes</button>
+                    <button type="button" class="admin-btn admin-btn-secondary" id="cancel-edit">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Applications Modal -->
+    <div class="admin-modal-overlay" id="applications-modal">
+        <div class="admin-modal" style="max-width: 800px;">
+            <h2>Applications for <span id="apps-opp-title"></span></h2>
+            <div class="admin-table-container" style="max-height: 400px; overflow-y: auto; margin-top: 1rem; margin-bottom: 1rem;">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Applicant Name</th>
+                            <th>Email</th>
+                            <th>Applied Date</th>
+                            <th>Resume</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="applications-table-body">
+                        <!-- Populated via JS -->
+                    </tbody>
+                </table>
+                <div id="apps-loader" style="display: none; text-align: center; padding: 2rem;">
+                    <span class="loader" style="width: 30px; height: 30px; border-width: 2px;"></span>
+                </div>
+                <div id="apps-empty" class="admin-empty-state" style="display: none; padding: 2rem;">
+                    <p>No applications found for this opportunity.</p>
+                </div>
+            </div>
+            <div class="admin-form-actions">
+                <button type="button" class="admin-btn admin-btn-secondary" id="close-apps-modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../scripts/api.js"></script>
+    <script src="../../scripts/auth-guard.js"></script>
+    <script src="../../scripts/manage-opportunities.js"></script>
+</body>
+
+</html>

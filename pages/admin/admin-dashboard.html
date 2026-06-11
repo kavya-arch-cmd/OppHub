@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | OppHub</title>
+    <meta name="description" content="Admin dashboard for managing opportunities on OppHub.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/admin.css">
+</head>
+
+<body class="admin-page" data-auth="admin">
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="nav-container" style="max-width: 1400px">
+            <a href="../../index.html" class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">OppHub</span>
+            </a>
+            <div class="nav-links">
+                <span
+                    style="color: var(--text-secondary); font-size: 0.85rem; border: 1px solid rgba(124,58,237,0.3); padding: 4px 12px; border-radius: 50px; background: rgba(124,58,237,0.08);">🔒
+                    Admin</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Layout -->
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar-header">
+                <h3>Admin Panel</h3>
+            </div>
+            <a href="admin-dashboard.html" class="admin-nav-item active">
+                <span class="admin-nav-icon">📊</span> Dashboard
+            </a>
+            <a href="add-opportunity.html" class="admin-nav-item">
+                <span class="admin-nav-icon">➕</span> Add Opportunity
+            </a>
+            <a href="manage-opportunities.html" class="admin-nav-item">
+                <span class="admin-nav-icon">📋</span> Manage Opportunities
+            </a>
+            <a href="admin-login.html" class="admin-nav-item logout" id="admin-logout">
+                <span class="admin-nav-icon">🚪</span> Logout
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-page-header fade-in-up">
+                <h1>Admin Dashboard</h1>
+                <p>Overview of platform opportunities and quick actions.</p>
+            </div>
+
+            <!-- Statistics -->
+            <div class="admin-stats-grid fade-in-up">
+                <div class="admin-stat-card">
+                    <div class="stat-card-icon cyan">📦</div>
+                    <div class="stat-card-value" id="stat-total">0</div>
+                    <div class="stat-card-label">Total Opportunities</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="stat-card-icon green">✅</div>
+                    <div class="stat-card-value" id="stat-active">0</div>
+                    <div class="stat-card-label">Active Opportunities</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="stat-card-icon amber">⏰</div>
+                    <div class="stat-card-value" id="stat-expiring">0</div>
+                    <div class="stat-card-label">Expiring Soon</div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="admin-page-header" style="margin-bottom: 1.5rem;">
+                <h1 style="font-size: 1.3rem;">Quick Actions</h1>
+            </div>
+
+            <div class="admin-actions fade-in-up">
+                <a href="add-opportunity.html" class="admin-action-card">
+                    <div class="action-card-icon">➕</div>
+                    <div class="action-card-text">
+                        <h3>Add Opportunity</h3>
+                        <p>Create a new scholarship, internship, or hackathon listing.</p>
+                    </div>
+                </a>
+                <a href="manage-opportunities.html" class="admin-action-card">
+                    <div class="action-card-icon">📋</div>
+                    <div class="action-card-text">
+                        <h3>Manage Opportunities</h3>
+                        <p>Edit, update or remove existing opportunity listings.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="admin-page-header" style="margin-bottom: 1.5rem; margin-top: 1rem;">
+                <h1 style="font-size: 1.3rem;">Recent Additions</h1>
+            </div>
+
+            <div class="admin-table-container fade-in-up">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Deadline</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recent-table-body">
+                        <!-- Populated via JS -->
+                    </tbody>
+                </table>
+                <div id="dashboard-empty" class="admin-empty-state" style="display: none;">
+                    <div class="empty-icon">📭</div>
+                    <h3>No opportunities yet</h3>
+                    <p>Start by adding your first opportunity listing.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../scripts/api.js"></script>
+    <script src="../../scripts/auth-guard.js"></script>
+    <script src="../../scripts/admin-dashboard.js"></script>
+</body>
+
+</html>

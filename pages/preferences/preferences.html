@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Interests | OppHub</title>
+    <meta name="description"
+        content="Tell us what opportunities you're looking for so we can personalize your OppHub experience.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/preferences.css">
+</head>
+
+<body class="auth-page" data-auth="required">
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">OppHub</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Preferences Section -->
+    <section class="pref-section">
+        <!-- Ambient background blobs -->
+        <div class="pref-blob pref-blob-1"></div>
+        <div class="pref-blob pref-blob-2"></div>
+
+        <div class="pref-container fade-in-up">
+            <!-- Step indicator -->
+            <div class="pref-step-badge" id="step-badge">
+                <span class="step-dot"></span>
+                Step 1 of 2
+            </div>
+
+            <!-- STEP 1: Opportunity Types -->
+            <div id="step-1-container">
+                <div class="pref-header">
+                    <h1>What types of opportunities do you want?</h1>
+                    <p>Select your preferred opportunity types to filter out what you don't want.</p>
+                </div>
+
+                <div class="pref-grid step2-grid" id="pref-grid-types">
+                    <div class="pref-card pref-tag type-tag" data-value="Internship">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                        <h3>💼 Internships</h3>
+                    </div>
+                    <div class="pref-card pref-tag type-tag" data-value="Job">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                        <h3>🏢 Jobs</h3>
+                    </div>
+                    <div class="pref-card pref-tag type-tag" data-value="Scholarship">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                        <h3>🎓 Scholarships</h3>
+                    </div>
+                    <div class="pref-card pref-tag type-tag" data-value="Freelancing">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                        <h3>💻 Freelancing</h3>
+                    </div>
+                    <div class="pref-card pref-tag type-tag" data-value="Workshop / Training">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                        <h3>🛠️ Workshop / Training</h3>
+                    </div>
+                    <div class="pref-card pref-tag type-tag" data-value="Hackathon">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                        <h3>🚀 Hackathons</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 2: Career Fields -->
+            <div id="step-2-container" style="display: none;">
+                <div class="pref-header">
+                    <h1>What fields are you interested in?</h1>
+                    <p>Select your career fields so we can personalize your AI recommendations.</p>
+                </div>
+
+                <div class="pref-grid step1-grid" id="pref-grid">
+                    <div class="pref-card pref-tag" data-value="Web Development" id="card-web-dev">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>🌐 Web Development</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="Frontend Development" id="card-frontend">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>🎨 Frontend Development</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="Backend Development" id="card-backend">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>⚙️ Backend Development</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="Full Stack Development" id="card-fullstack">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>🚀 Full Stack Development</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="AI/ML" id="card-aiml">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>🤖 AI/ML</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="Data Science" id="card-datascience">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>📊 Data Science</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="UI/UX Design" id="card-uiux">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>✨ UI/UX Design</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="App Development" id="card-appdev">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>📱 App Development</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="Cybersecurity" id="card-cyber">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>🔒 Cybersecurity</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="Cloud Computing" id="card-cloud">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>☁️ Cloud Computing</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="Software Engineering" id="card-swe">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>💻 Software Engineering</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="Data Analytics" id="card-data-analytics">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>📈 Data Analytics</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="Digital Marketing" id="card-marketing">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>🎯 Digital Marketing</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="Finance" id="card-finance">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>💰 Finance</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="Mechanical Engineering" id="card-mech">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>⚙️ Mechanical Engineering</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="Civil Engineering" id="card-civil">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>🏗️ Civil Engineering</h3>
+                    </div>
+                    <div class="pref-card pref-tag" data-value="Electronics Engineering" id="card-electronics">
+                        <div class="pref-card-glow"></div>
+                        <div class="pref-card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <h3>⚡ Electronics Engineering</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Selection counter + Continue -->
+            <div class="pref-footer">
+                <button class="btn btn-secondary btn-large" id="back-btn"
+                    style="display: none; padding: 0.8rem 1.5rem; min-width: auto;">
+                    ← Back
+                </button>
+                <div class="pref-selection-count" id="selection-count">
+                    <span class="count-number">0</span> selected
+                </div>
+                <button class="btn btn-primary btn-large glow-effect pref-continue-btn" id="continue-btn" disabled>
+                    <span class="btn-text">Next Step</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom" style="border-top: none;">
+            <p>&copy; 2026 OppHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../scripts/api.js"></script>
+    <script src="../../scripts/auth-guard.js"></script>
+    <script src="../../scripts/preferences.js"></script>
+</body>
+
+</html>

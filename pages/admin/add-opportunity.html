@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Opportunity | Admin — OppHub</title>
+    <meta name="description" content="Create a new opportunity listing on the OppHub platform.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/admin.css">
+</head>
+
+<body class="admin-page" data-auth="admin">
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="nav-container" style="max-width: 1400px">
+            <a href="../../index.html" class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">OppHub</span>
+            </a>
+            <div class="nav-links">
+                <span
+                    style="color: var(--text-secondary); font-size: 0.85rem; border: 1px solid rgba(124,58,237,0.3); padding: 4px 12px; border-radius: 50px; background: rgba(124,58,237,0.08);">🔒
+                    Admin</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Layout -->
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar-header">
+                <h3>Admin Panel</h3>
+            </div>
+            <a href="admin-dashboard.html" class="admin-nav-item">
+                <span class="admin-nav-icon">📊</span> Dashboard
+            </a>
+            <a href="add-opportunity.html" class="admin-nav-item active">
+                <span class="admin-nav-icon">➕</span> Add Opportunity
+            </a>
+            <a href="manage-opportunities.html" class="admin-nav-item">
+                <span class="admin-nav-icon">📋</span> Manage Opportunities
+            </a>
+            <a href="admin-login.html" class="admin-nav-item logout" id="admin-logout">
+                <span class="admin-nav-icon">🚪</span> Logout
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-page-header fade-in-up">
+                <h1>Add New Opportunity</h1>
+                <p>Fill in the details below to create a new opportunity listing for users.</p>
+            </div>
+
+            <div class="admin-form-container fade-in-up">
+                <div class="admin-form-card">
+                    <div id="form-success" class="admin-success-banner">
+                        ✅ Opportunity created successfully! Redirecting...
+                    </div>
+                    <div id="form-error" class="admin-error-banner"></div>
+
+                    <form id="add-opportunity-form">
+                        <div class="admin-form-row">
+                            <div class="admin-form-group">
+                                <label for="opp-title">Title <span class="required">*</span></label>
+                                <input type="text" id="opp-title" class="admin-input"
+                                    placeholder="e.g. Google STEP Internship" required>
+                            </div>
+                            <div class="admin-form-group">
+                                <label for="opp-category">Category <span class="required">*</span></label>
+                                <select id="opp-category" class="admin-select" required>
+                                    <option value="" disabled selected>Select Category</option>
+                                    <option value="Scholarship">Scholarship</option>
+                                    <option value="Internship">Internship</option>
+                                    <option value="Job">Job</option>
+                                    <option value="Freelancing">Freelancing</option>
+                                    <option value="Workshop / Training">Workshop / Training</option>
+                                    <option value="Hackathon">Hackathon</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label for="opp-description">Description <span class="required">*</span></label>
+                            <textarea id="opp-description" class="admin-textarea"
+                                placeholder="Provide a detailed description of this opportunity..." required></textarea>
+                        </div>
+
+                        <!-- Dynamic Internship/Job Fields -->
+                        <div id="internship-fields" class="admin-category-fields internship-category-fields">
+                            <div class="admin-category-fields-header">
+                                <span class="admin-category-fields-icon">💼</span>
+                                <h4>Internship / Job Specifics</h4>
+                            </div>
+                            <div class="admin-form-row">
+                                <div class="admin-form-group">
+                                    <label for="opp-stipend">Stipend / Salary</label>
+                                    <input type="text" id="opp-stipend" class="admin-input" placeholder="e.g. $2000/month or Unpaid">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label for="opp-experience">Experience Level</label>
+                                    <input type="text" id="opp-experience" class="admin-input" placeholder="e.g. Entry Level, 1+ year">
+                                </div>
+                            </div>
+                            <div class="admin-form-group">
+                                <label for="opp-skills">Required Skills (Comma separated)</label>
+                                <input type="text" id="opp-skills" class="admin-input" placeholder="e.g. React, Node.js, Python">
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Scholarship Fields -->
+                        <div id="scholarship-fields" class="admin-category-fields scholarship-category-fields">
+                            <div class="admin-category-fields-header">
+                                <span class="admin-category-fields-icon">🎓</span>
+                                <h4>Scholarship Specifics</h4>
+                            </div>
+                            <div class="admin-form-row">
+                                <div class="admin-form-group">
+                                    <label for="opp-academic">Academic Requirements</label>
+                                    <input type="text" id="opp-academic" class="admin-input" placeholder="e.g. CGPA 3.5+, Class 12 Result">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label for="opp-income">Income Criteria</label>
+                                    <input type="text" id="opp-income" class="admin-input" placeholder="e.g. Family income < 2 LPA">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Hackathon Fields -->
+                        <div id="hackathon-fields" class="admin-category-fields hackathon-category-fields">
+                            <div class="admin-category-fields-header">
+                                <span class="admin-category-fields-icon">🏆</span>
+                                <h4>Hackathon Specifics</h4>
+                            </div>
+                            <div class="admin-form-row">
+                                <div class="admin-form-group">
+                                    <label for="opp-prizepool">Prize Pool</label>
+                                    <input type="text" id="opp-prizepool" class="admin-input" placeholder="e.g. ₹50,000">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label for="opp-teamsize">Team Size</label>
+                                    <input type="text" id="opp-teamsize" class="admin-input" placeholder="e.g. 2-4 Members">
+                                </div>
+                            </div>
+                            <div class="admin-form-row">
+                                <div class="admin-form-group">
+                                    <label for="opp-mode">Mode</label>
+                                    <select id="opp-mode" class="admin-select">
+                                        <option value="">Select Mode</option>
+                                        <option value="Online">Online</option>
+                                        <option value="Offline">Offline</option>
+                                        <option value="Hybrid">Hybrid</option>
+                                    </select>
+                                </div>
+                                <div class="admin-form-group">
+                                    <label for="opp-duration">Duration</label>
+                                    <input type="text" id="opp-duration" class="admin-input" placeholder="e.g. 24 Hours, 48 Hours">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Freelancing Fields -->
+                        <div id="freelancing-fields" class="admin-category-fields freelancing-category-fields">
+                            <div class="admin-category-fields-header">
+                                <span class="admin-category-fields-icon">💼</span>
+                                <h4>Freelancing Specifics</h4>
+                            </div>
+                            <div class="admin-form-row">
+                                <div class="admin-form-group">
+                                    <label for="opp-budget">Budget Range</label>
+                                    <input type="text" id="opp-budget" class="admin-input" placeholder="e.g. ₹5,000 - ₹20,000 or Fixed Price">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label for="opp-project-type">Project Type</label>
+                                    <select id="opp-project-type" class="admin-select">
+                                        <option value="">Select Type</option>
+                                        <option value="One-time">One-time Project</option>
+                                        <option value="Ongoing">Ongoing / Retainer</option>
+                                        <option value="Part-time">Part-time Contract</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="admin-form-row">
+                                <div class="admin-form-group">
+                                    <label for="opp-freelance-skills">Required Skills (Comma separated)</label>
+                                    <input type="text" id="opp-freelance-skills" class="admin-input" placeholder="e.g. React, Figma, Copywriting">
+                                </div>
+                                <div class="admin-form-group">
+                                    <label for="opp-freelance-experience">Experience Level</label>
+                                    <select id="opp-freelance-experience" class="admin-select">
+                                        <option value="">Select Level</option>
+                                        <option value="Beginner">Beginner Friendly</option>
+                                        <option value="Intermediate">Intermediate</option>
+                                        <option value="Expert">Expert</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label for="opp-eligibility">Eligibility <span class="required">*</span></label>
+                            <input type="text" id="opp-eligibility" class="admin-input"
+                                placeholder="e.g. Open to all undergraduate students" required>
+                        </div>
+
+                        <div class="admin-form-row">
+                            <div class="admin-form-group">
+                                <label for="opp-organization">Organization Name <span
+                                        class="required">*</span></label>
+                                <input type="text" id="opp-organization" class="admin-input"
+                                    placeholder="e.g. Google" required>
+                            </div>
+                            <div class="admin-form-group">
+                                <label for="opp-location">Location</label>
+                                <input type="text" id="opp-location" class="admin-input"
+                                    placeholder="e.g. Remote / New York">
+                            </div>
+                        </div>
+
+                        <div class="admin-form-row">
+                            <div class="admin-form-group">
+                                <label for="opp-link">Application Link <span class="required">*</span></label>
+                                <input type="url" id="opp-link" class="admin-input"
+                                    placeholder="https://apply.example.com" required>
+                            </div>
+                            <div class="admin-form-group">
+                                <label for="opp-deadline">Deadline <span class="required">*</span></label>
+                                <input type="date" id="opp-deadline" class="admin-input" required>
+                            </div>
+                        </div>
+
+                        <div class="admin-form-actions">
+                            <button type="submit" class="admin-btn admin-btn-primary" id="submit-btn">
+                                <span class="btn-text">Submit Opportunity</span>
+                                <span class="admin-loader" id="submit-loader"></span>
+                            </button>
+                            <a href="admin-dashboard.html" class="admin-btn admin-btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../scripts/api.js"></script>
+    <script src="../../scripts/auth-guard.js"></script>
+    <script src="../../scripts/add-opportunity.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunities | OppHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/style.css">
+</head>
+
+<body class="dashboard-page">
+    <!-- Navbar -->
+    <nav class="navbar dashboard-navbar">
+        <div class="nav-container" style="max-width: 1400px">
+            <a href="../../index.html" class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">OppHub</span>
+            </a>
+            <div class="nav-links">
+                <a href="../../index.html" class="btn btn-secondary btn-sm" id="logout-btn">Log Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="../../index.html">
+                        <span class="menu-icon">🏠</span> Home
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../dashboard/dashboard.html">
+                        <span class="menu-icon">📊</span> Dashboard
+                    </a>
+                </li>
+                <li class="menu-item active">
+                    <a href="opportunities.html">
+                        <span class="menu-icon">🔍</span> Opportunities
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../applications/applications.html">
+                        <span class="menu-icon">🔖</span> My Applications
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../profile/profile.html">
+                        <span class="menu-icon">👤</span> Profile
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header fade-in">
+                <h1>Browse Opportunities</h1>
+                <p>Discover scholarships, internships, and jobs tailored for you.</p>
+            </header>
+
+            <!-- Search and Filter Panel -->
+            <div class="search-filter-section slide-up delay-1">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="search-input" class="search-input"
+                        placeholder="Search by title, company, or keywords...">
+                </div>
+                <select id="filter-category" class="filter-dropdown">
+                    <option value="all">All Categories</option>
+                    <option value="scholarship">Scholarships</option>
+                    <option value="internship">Internships</option>
+                    <option value="job">Jobs</option>
+                    <option value="freelancing">Freelancing</option>
+                    <option value="workshop / training">Workshops / Training</option>
+                    <option value="hackathon">Hackathons</option>
+                </select>
+                <select id="filter-location" class="filter-dropdown">
+                    <option value="all">Any Location</option>
+                    <option value="remote">Remote</option>
+                    <option value="onsite">On-site</option>
+                </select>
+            </div>
+
+            <div id="loader" style="text-align: center; padding: 4rem; display: none;">
+                <span class="loader" style="width: 40px; height: 40px; border-width: 3px;"></span>
+            </div>
+
+            <!-- Opportunity Cards Grid -->
+            <div id="opportunities-grid" class="dashboard-grid slide-up delay-2">
+                <!-- Data populated dynamically by API -->
+            </div>
+        </main>
+    </div>
+
+    <script src="../../scripts/api.js"></script>
+    <script src="../../scripts/opportunities.js"></script>
+</body>
+
+</html>
